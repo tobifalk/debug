@@ -1,0 +1,19 @@
+# http://www.webgraphviz.com/
+
+# configured dependency graph
+digraph G {
+  edge [dir="back"]
+  "util-lib" -> "App"
+  "cpp-netlib" -> "App"
+  "boost" -> "util-lib" [ label="[>=1.65.0]" ]
+  "boost" -> "cpp-netlib" [ label="[>=1.65.0 <1.70]" ]
+}
+
+# conan-generated conflict
+digraph G {
+  edge [dir="back"]
+  "util-lib" -> "App"
+  "cpp-netlib" -> "App"
+  "boost/1.75.0" -> "util-lib" [ label="[>=1.65.0]" ]
+  "boost/1.69.0" -> "cpp-netlib" [ label="[>=1.65.0 <1.70]" ]
+}
